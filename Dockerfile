@@ -7,6 +7,7 @@ RUN apt-get -y update \
     apt-utils \
     digikam \
     digikam-doc \
+    kipi-plugins \
     dolphin \
     konsole \
     krita \
@@ -26,6 +27,14 @@ RUN apt-get -y update \
     pandora \
     hugin \
     hugin-tools \
+    gtk-theme-config \
+    gtk-theme-switch \
+    gnome-themes-standard \
+    murrine-themes \ 
+    darktable \
+    gvfs-backends \
+    gimp-help-en \
+    ghostscript \
     && apt-get clean
 
 VOLUME /home/john

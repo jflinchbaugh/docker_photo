@@ -1,11 +1,18 @@
 #!/bin/sh
 
-docker run -it --rm -e DISPLAY=$DISPLAY \
-    --volumes-from=photodata \
+DOCKER="docker run -it --rm -e DISPLAY=$DISPLAY"
+MOUNTS="--volumes-from=photodata \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/john/Pictures:/home/john/Pictures \
     -v /home/john/Photos:/home/john/Photos \
     -v /home/john/working:/home/john/working \
     -v /home/john/.gimp-2.8:/home/john/.gimp-2.8 \
-    -v /home/john/.local:/home/john/.local \
-    photo su - -c "${@:-bash}" john
+    -v /home/john/.local:/home/john/.local"
+IMAGE="photos"
+
+if [ $# -eq 0 ]; then
+    $DOCKER $MOUNTS $IMAGE 
+else
+    $DOCKER $MOUNTS $IMAGE su - -c "$@" john
+fi
+
