@@ -1,0 +1,7 @@
+A docker build for a photo workflow on Ubuntu 15.10.
+
+Build the photo image:
+    % docker build -t photo .
+
+Then run it each time:
+    ./start_photos
