@@ -1,7 +1,9 @@
 A docker build for a photo workflow on Ubuntu 15.10.
 
 Build the photo image:
-    % docker build -t photo .
+    % docker build -t photos .
 
 Then run it each time:
     ./start_photos
+
+Question: How is photodata image created?
