@@ -1,5 +1,6 @@
-FROM ubuntu:wily
+FROM ubuntu:cosmic
 RUN adduser --quiet --disabled-password --gecos '' john
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update \
     && apt-get -y upgrade \
     && apt-get -y install \
@@ -10,6 +11,7 @@ RUN apt-get -y update \
     kipi-plugins \
     dolphin \
     konsole \
+    locales \
     krita \
     man \
     marble \
@@ -27,10 +29,9 @@ RUN apt-get -y update \
     pandora \
     hugin \
     hugin-tools \
-    gtk-theme-config \
     gtk-theme-switch \
     gnome-themes-standard \
-    murrine-themes \ 
+    murrine-themes \
     darktable \
     gvfs-backends \
     gimp-help-en \
@@ -43,10 +44,10 @@ RUN echo "QT_X11_NO_MITSHM=1" >> /etc/environment \
     && echo "LANG=en_US.UTF-8" >> /etc/environment \
     && echo "LANGUAGE=en_US:en" >> /etc/environment \
     && echo "LC_ALL=en_US.UTF-8" >> /etc/environment \
-    && locale-gen en_US.UTF-8  
-ENV LANG en_US.UTF-8  
-ENV LANGUAGE en_US:en  
-ENV LC_ALL en_US.UTF-8 
+    && locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 ENV QT_X11_NO_MITSHM 1
 ENV LANG en_US.UTF-8
 
